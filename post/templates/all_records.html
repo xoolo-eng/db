@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block post %}
+
+{% for post in page_obj %}
+    <h2><a href="{% url 'single_post' post.slug %}">{{post.title}}</a></h2>
+    <p>{% if post.author.first_name %}
+     {{post.author.first_name}} {{post.author.last_name}}{% else %} {{post.author.username}} {% endif %}</p>
+    <img src="{{post.image.url}}" />
+    <ul>
+    {% for t in post.tags.all %}
+        <li><a href="">{{t.value}}</a></li>
+    {% endfor %}
+    </ul>
+    <p>{{post.created}}</p>
+    <p>{{post.views}}</p>
+    <p>{{post.text|truncatechars:30}}</p>
+
+{% endfor %}
+    {% include "blocks/pages.html" %}
+
+{% endblock post %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block user %}
+{% load blog_lib %}
+
+<ul>
+    {% for u in page_obj %}
+        <li>{{ u.username }} | {{ u.last_login }} {% if u.is_superuser %} | Superuser{% endif %} </li>
+    {% endfor %}
+    {% include "blocks/pages.html" %}
+</ul>
+
+{% endblock user %}

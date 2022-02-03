@@ -1,0 +1,11 @@
+div {
+    background: #99bbff66;
+}
+
+.input {
+    outline-width: 3em;
+}
+
+.helptext {
+    display: none !important;
+}
